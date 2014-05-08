@@ -38,6 +38,8 @@ define(['underscore', 'jquery', 'backbone', 'bootstrap', 'backbone.controller', 
                 var lang = self.m_languageSelectionLogin.getLanguage();
                 if (lang)
                     self.m_languageSelectionLogin.setLanguage(lang);
+
+                self.m_languageSelectionLogin.setLanguage("hr");
             });
 
             // router init

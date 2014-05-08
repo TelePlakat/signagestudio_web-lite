@@ -39,6 +39,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
 
             $(Elements.NEW_CAMPAIGN).on('click', function (e) {
                 self.options.stackView.slideToPage(self.options.to, 'right');
+                //var campView = BB.comBroker.getService(BB.SERVICES.CAMPAIGN_VIEW);
+                //campView.m_selected_campaign_id = -1;
                 return false;
             });
 
@@ -51,6 +53,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                             if (result==true){
                                 selectedElement.remove();
                                 self._removeCampaignFromMSDB(self.m_selectedCampaignID);
+                                self.m_selectedCampaignID = -1;
                             }
                         });
                     } else {
@@ -72,6 +75,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         _loadCampaignList: function () {
             var self = this;
 
+            $(Elements.CAMPAIGN_SELECTOR_LIST).html("");
             self.m_selected_resource_id = undefined;
             var campaignIDs = pepper.getCampaignIDs();
             for (var i = 0; i < campaignIDs.length; i++) {
@@ -101,6 +105,11 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                 $(Elements.CLASS_CAMPIGN_LIST_ITEM, self.el).removeClass('active');
                 $(this).addClass('active');
                 self.m_selectedCampaignID = $(this).data('campaignid');
+
+                var campView = BB.comBroker.getService(BB.SERVICES.CAMPAIGN_VIEW);
+                campView.clearContents();
+                campView._render();
+
                 self.options.stackView.slideToPage(Elements.CAMPAIGN, 'right');
                 return false;
             });

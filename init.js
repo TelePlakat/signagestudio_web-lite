@@ -4,7 +4,8 @@
  **/
 require.config({
     waitSeconds: 45,
-    baseUrl: '/_studiolite-dev/',
+    baseUrl: '/',
+    urlArgs: "v=" +  (new Date()).getTime(),
     paths: {
         'jquery': '_common/_jquery/std/jq1.9.1/jquery-1.9.1',
         'jqueryui': '_common/_jquery/std/jq1.10.1/jquery-ui-1.10.1',

@@ -31,6 +31,17 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             $(Elements.CLASS_CAMPAIG_NMANAGER_VIEW).on('click', function () {
                 self._checkLimitedAccess();
                 appContentFaderView.selectView(Elements.CAMPAIGN_MANAGER_VIEW);
+
+                // we need to clear contents of currently loaded campaign
+                var campView = BB.comBroker.getService(BB.SERVICES.CAMPAIGN_VIEW);
+                campView.clearContents();
+
+                // we also need to slide campaign selector view back in
+                var selView = BB.comBroker.getService(BB.SERVICES.LAYOUT_ROUTER).m_campaignSelectorView;
+                selView.m_selectedCampaignID = -1; // strangely, this variable holds props selection
+                selView._loadCampaignList(); selView._listenSelectCampaign(); selView._listenOpenProps();
+                self.options.stackView.slideToPage(selView, "left");
+
                 self.resetPropertiesView();
             });
 
@@ -231,7 +242,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                         className: "btn-success",
                         callback: function () {
                             self.save(function () {
-                                pepper.sendCommand('rebootPlayer', -1, function () {
+                                pepper.sendCommand('syncAndStart', -1, function () {
                                 });
 
                             });

@@ -248,7 +248,7 @@ define(['jquery', 'backbone', 'minicolors', 'spinner', 'Fonts'], function ($, Ba
                     $button.toggleClass('active');
                     break;
                 }
-                case 'fontSi    zeUp':
+                case 'fontSizeUp':
                 {
                     self.m_config.size = self.m_fontSizeInput.val();
                     break;

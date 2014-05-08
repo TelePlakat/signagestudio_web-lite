@@ -188,9 +188,7 @@ define(['underscore', 'jquery', 'backbone', 'AppAuth', 'NavigationView', 'AppEnt
              **/
             _initContentPage: function () {
 
-                this.m_navigationView = new NavigationView({
-                    el: Elements.FILE_MENU
-                });
+                var self = this;
 
                 this.m_campaignManagerView = new CampaignManagerView({
                     el: Elements.CAMPAIGN_MANAGER_VIEW
@@ -198,6 +196,11 @@ define(['underscore', 'jquery', 'backbone', 'AppAuth', 'NavigationView', 'AppEnt
 
                 this.m_campaignSliderStackView = new CampaignSliderStackView({
                     el: Elements.CAMPAIGN_SLIDER
+                });
+
+                this.m_navigationView = new NavigationView({
+                    stackView: self.m_campaignSliderStackView,
+                    el: Elements.FILE_MENU
                 });
 
                 this.m_resourcesView = new ResourcesView({

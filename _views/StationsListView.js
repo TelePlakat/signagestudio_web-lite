@@ -210,7 +210,7 @@ define(['jquery', 'backbone', 'StationsCollection', 'AjaxJsonGetter'], function 
             });
 
             $(Elements.STATION_RELOAD_COMMAND).on('click', function (e) {
-                pepper.sendCommand('rebootPlayer', self.m_selected_station_id, function () {
+                pepper.sendCommand('syncAndStart', self.m_selected_station_id, function () {
                 });
                 return false;
             });
@@ -444,6 +444,7 @@ define(['jquery', 'backbone', 'StationsCollection', 'AjaxJsonGetter'], function 
             var campaign_id = $(Elements.STATION_SELECTION_CAMPAIGN + ' option:selected').attr('data-campaign_id');
             if (campaign_id == -1)
                 return;
+
             pepper.setStationCampaignID(self.m_selected_station_id, campaign_id);
         },
 

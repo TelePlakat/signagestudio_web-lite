@@ -56,6 +56,13 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
             });
         },
 
+        clearContents: function () {
+            var self = this;
+            self.m_selected_timeline_id = -1;
+            self.m_selected_campaign_id = -1;
+
+            $(Elements.SCREEN_LAYOUTS_UL).html("");
+        },
         /**
          If loading an existing campaign (i.e.: we are not creating a brand new one) we load
          all campaign data from msdb and populate UI
@@ -70,6 +77,9 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
                 return;
 
             // a previous campaign was loaded from CampaignSelectorView
+
+            self.m_timelines = {}; // hold references to all created timeline instances
+
             self.m_selected_campaign_id = BB.comBroker.getService(BB.SERVICES.CAMPAIGN_SELECTOR).getSelectedCampaign();
             self._loadTimelinesFromDB();
             self._loadSequencerFirstTimeline();
