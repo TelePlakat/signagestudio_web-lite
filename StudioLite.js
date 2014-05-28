@@ -12,6 +12,29 @@ define(['underscore', 'jquery', 'backbone', 'bootstrap', 'backbone.controller', 
         initialize: function () {
             var self = this;
 
+            // very ugly functions used for foreign characters...probably should be moved to separate .js if we decide to make one
+            window.toAnsi = function(str) {
+                var byteArray = "";
+                for (var i = 0; i < str.length; i++)
+                    if (str.charCodeAt(i) <= 0x7F)
+                        byteArray += str.charAt(i);
+                    else {
+                        var h = encodeURIComponent(str.charAt(i)).substr(1).split('%');
+                        for (var j = 0; j < h.length; j++)
+                            byteArray += String.fromCharCode(parseInt(h[j], 16));
+                    }
+                return byteArray;
+            };
+            window.fromAnsi = function(ansiStr) {
+                var str = '';
+                for (var i = 0; i < ansiStr.length; i++)
+                    str +=  ansiStr.charCodeAt(i) <= 0x7F?
+                            ansiStr.charCodeAt(i) === 0x25 ? "%25" : // %
+                        String.fromCharCode(ansiStr.charCodeAt(i)) :
+                        "%" + ansiStr.charCodeAt(i).toString(16).toUpperCase();
+                return decodeURIComponent(str);
+            };
+
             window.BB = Backbone;
             BB.globs = {};
             BB.SERVICES = {};

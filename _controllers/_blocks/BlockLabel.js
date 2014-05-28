@@ -40,7 +40,10 @@ define(['jquery', 'backbone', 'Block'], function ($, Backbone, Block) {
                 var domPlayerData = self._getBlockPlayerData();
                 var xSnippet = $(domPlayerData).find('Label');
                 var xSnippetText = $(xSnippet).find('Text');
-                $(xSnippetText).text(text);
+
+                var encoded = toAnsi(text);
+                $(xSnippetText).text(encoded);
+
                 self._setBlockPlayerData(domPlayerData);
             }, 150);
             $(Elements.LABEL_TEXT).on("input", self.m_inputChangeHandler);
@@ -57,7 +60,9 @@ define(['jquery', 'backbone', 'Block'], function ($, Backbone, Block) {
             var xSnippet = $(domPlayerData).find('Label');
             var xSnippetText = $(xSnippet).find('Text');
             var xSnippetFont = $(xSnippet).find('Font');
-            $(Elements.LABEL_TEXT).val(xSnippetText.text());
+
+            var decoded = fromAnsi(xSnippetText.text());
+            $(Elements.LABEL_TEXT).val(decoded);
 
             self.m_labelFontSelector.setConfig({
                 bold: xSnippetFont.attr('fontWeight') == 'bold' ? true : false,

@@ -61,6 +61,16 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
             self.m_selected_timeline_id = -1;
             self.m_selected_campaign_id = -1;
 
+            for (var i in self.m_timelines) {
+                self.m_timelines[i].destroy();
+            }
+
+            self.m_timelines = {};
+            self.m_sequencerView = new SequencerView({
+                el: Elements.SCREEN_LAYOUTS_UL
+            });
+            BB.comBroker.setService(BB.SERVICES['SEQUENCER_VIEW'], this.m_sequencerView);
+
             $(Elements.SCREEN_LAYOUTS_UL).html("");
         },
         /**
@@ -146,6 +156,7 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
                     self.m_timelineViewStack.selectView(self.m_timelines[campaign_timeline_id].getStackViewID());
                     BB.comBroker.fire(BB.EVENTS.CAMPAIGN_TIMELINE_SELECTED, this, null, campaign_timeline_id);
                     self._updatedTimelinesLengthUI();
+
                     return;
                 }
 
@@ -187,7 +198,8 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
 
                         // set campaign name
                         var campaignName = BB.comBroker.getService(BB.SERVICES['CAMPAIGN_NAME_SELECTOR_VIEW']).getCampaignName();
-                        pepper.setCampaignRecord(self.m_selected_campaign_id, 'campaign_name', campaignName);
+                        var encoded = toAnsi(campaignName);
+                        pepper.setCampaignRecord(self.m_selected_campaign_id, 'campaign_name', encoded);
 
                     } else {
 
@@ -198,7 +210,7 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
                         campaign_board_id = pepper.getFirstBoardIDofCampaign(self.m_selected_campaign_id);
                         board_id = pepper.getBoardFromCampaignBoard(campaign_board_id);
                         var newTemplateData = pepper.createNewTemplate(board_id, e.caller.screenTemplateData.screenProps);
-                        var board_template_id = newTemplateData['board_template_id']
+                        var board_template_id = newTemplateData['board_template_id'];
                         var viewers = newTemplateData['viewers'];
                     }
 
@@ -215,6 +227,7 @@ define(['jquery', 'backbone', 'SequencerView', 'ChannelListView', 'StackView', '
 
                     BB.comBroker.getService(BB.SERVICES['SEQUENCER_VIEW']).reSequenceTimelines();
                     self._loadSequencerFirstTimeline();
+                    //console.log("timeline_id: %s, timeline_board_id: %s", campaign_timeline_id, campaign_timeline_board_template_id);
                     return;
                 }
             });

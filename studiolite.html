@@ -45,14 +45,14 @@
                     <li class="divider"></li>
                     <li><a data-localize="navStation" class="stationsPanel" href="#">Stations</a></li>
                     <li class="divider"></li>
-                    <li><a data-localize="navScenes" class="scenesPanel" href="#">Scenes</a></li>
+                    <!--<li><a data-localize="navScenes" class="scenesPanel" href="#">Scenes</a></li>
                     <li class="divider"></li>
                     <li><a data-localize="navSettings" class="settingsPanel" href="#">Settings</a></li>
                     <li class="divider"></li>
                     <li><a data-localize="navStudioPanel" class="proStudioPanel" href="#">Pro (FREE)</a></li>
                     <li class="divider"></li>
                     <li><a data-localize="navHelpPanel" class="helpPanel" href="#">Help</a></li>
-                    <li class="divider"></li>
+                    <li class="divider"></li>-->
                     <li><a data-localize="navLogout" class="logoutPanel" href="#">Logout</a></li>
                 </ul>
             </li>
@@ -585,7 +585,7 @@
 </div>
 <div id="timelineProperties" style="display: none">
     <label>Length: </label>
-    <label id="timelineLength" style="text-align: right"><span data-localize="lenght">Length</span>: 00:00:00</label>
+    <label id="timelineLength" style="text-align: right"><span data-localize="length">Length</span>: 00:00:00</label>
     <hr/>
     <div data-role="fieldcontain" data-inset="true" style="width:99%;">
         <input type="text" name="name" id="timeLinePropTitleID" value="" placeholder="Timeline Title"
@@ -618,6 +618,7 @@
 <div id="stationProperties" style="display: none">
     <h4 id="stationName"></h4>
 
+    <!--
     <div id="snapShotWrap">
         <svg id="snapShotSVG" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -626,10 +627,11 @@
         </svg>
         <img id="snapShotImage"/> <img id="snapShotSpinner" style="display: none"
                                        src="_assets/preload2_gray.gif"/>
-    </div>
+    </div>-->
     <div id="stationcontrol" class="btn-group">
+        <!--
         <button id="stationSnapshotCommand" type="button" class="btn btn-default"><span
-                class="glyphicon  glyphicon glyphicon-picture"></span></button>
+                class="glyphicon  glyphicon glyphicon-picture"></span></button>-->
         <button id="stationPlayCommand" disabled="" type="button" class="btn btn-default"><span
                 class="glyphicon glyphicon glyphicon-play"></span></button>
         <button id="stationStopCommand" disabled="" type="button" class="btn btn-default"><span
@@ -653,12 +655,14 @@
             <li><span data-localize="lastUpd">Last upd </span>: <span id="stationLastUpdate"></span></li>
         </ul>
     </div>
+    <!--
     <input type="text" name="eventName" data-localize="eventName" placeholder="event name" id="stationSendEventValue"
            value="">
 
     <p></p>
     <button id="stationEventSendCommand" class="btn btn-primary" data-localize="sendStationEvent">Send station event
     </button>
+    -->
 </div>
 <div id="blockProperties" class="" style="display: none">
     <div id="channelBlockProps" style="display: none">
@@ -1119,6 +1123,8 @@
 
 <p style="display: none" id="bootBoxSteps" data-localize="bootBoxSteps">Station will be deleted, your work will be saved
     to the server and your remote station (SignagePlayer) de-registered...</p>
+
+<p style="display: none" id="fileSpecialCharacters" data-localize="fileSpecialCharacters">Special characters not allowed</p>
 
 </body>
 </html>

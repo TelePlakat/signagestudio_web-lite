@@ -83,8 +83,10 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                 var recCampaign = pepper.getCampaignRecord(campaignID);
                 var playListMode = recCampaign['campaign_playlist_mode'] == 0 ? 'sequencer' : 'scheduler';
 
+                var cName = fromAnsi(recCampaign['campaign_name']);
+
                 var snippet = '<a href="#" class="' + BB.lib.unclass(Elements.CLASS_CAMPIGN_LIST_ITEM) + ' list-group-item" data-campaignid="' + campaignID + '">' +
-                    '<h4>' + recCampaign['campaign_name'] + '</h4>' +
+                    '<h4>' + cName + '</h4>' +
                     '<p class="list-group-item-text">play list mode:' + playListMode + '</p>' +
                     '<div class="openProps">' +
                     '<button type="button" class="' + BB.lib.unclass(Elements.CLASS_OPEN_PROPS_BUTTON) + ' btn btn-default btn-sm"><i style="font-size: 1.5em" class="fa fa-tasks"></i></button>' +
@@ -128,7 +130,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                 var elem = $(e.target).closest('a').addClass('active');
                 self.m_selectedCampaignID = $(elem).data('campaignid');
                 var recCampaign = pepper.getCampaignRecord(self.m_selectedCampaignID);
-                $(Elements.FORM_CAMPAIGN_NAME).val(recCampaign['campaign_name']);
+                var decoded = fromAnsi(recCampaign['campaign_name']);
+                $(Elements.FORM_CAMPAIGN_NAME).val(decoded);
                 self.m_propertiesPanel.selectView(self.m_campainProperties);
                 self.m_propertiesPanel.openPropertiesPanel();
                 return false;
@@ -145,12 +148,20 @@ define(['jquery', 'backbone'], function ($, Backbone) {
 
             var timelineIDs = pepper.getCampaignTimelines(i_campaign_id);
 
+            var recs = pepper.m_msdb.table_campaign_timeline_board_templates();
+
             for (var i = 0; i < timelineIDs.length; i++) {
                 var timelineID = timelineIDs[i];
                 pepper.removeTimelineFromCampaign(timelineID);
                 var campaignTimelineBoardTemplateID = pepper.removeBoardTemplateFromTimeline(timelineID);
                 pepper.removeTimelineBoardViewerChannels(campaignTimelineBoardTemplateID);
-                var boardTemplateID = pepper.getGlobalBoardIDFromTimeline(timelineID);
+
+                // terrible terrible carnage...when new timeline is added to the board of campaign (always uses first board in lite?)
+                // it is somehow NOT saved in the following call datasource...so if you try the call with the newly added timeline it will exception
+                //var boardTemplateID = pepper.getGlobalBoardIDFromTimeline(timelineID);
+                var boardTemplateID = pepper.getFirstBoardIDofCampaign(i_campaign_id);
+                //console.log("First board id: %s", boardTemplateID);
+
                 pepper.removeBoardTemplate(boardTemplateID);
                 pepper.removeBoardTemplateViewers(boardTemplateID);
                 pepper.removeTimelineFromSequences(timelineID);
@@ -188,7 +199,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             var self = this;
             var onChange = _.debounce(function (e) {
                 var text = $(e.target).val();
-                pepper.setCampaignRecord(self.m_selectedCampaignID, 'campaign_name', text);
+                var encoded = toAnsi(text);
+                pepper.setCampaignRecord(self.m_selectedCampaignID, 'campaign_name', encoded);
                 self.$el.find('[data-campaignid="' + self.m_selectedCampaignID + '"]').find('h4').text(text);
             }, 333, false);
             $(Elements.FORM_CAMPAIGN_NAME).on("input", onChange);

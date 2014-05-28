@@ -41,9 +41,11 @@ define(['jquery', 'backbone'], function ($, Backbone) {
                 var orientation = self.orientationSelector.model.get(BB.CONSTS.ORIENTATION);
                 $(Elements.RESOLUTION_LIST).empty();
                 for (var screenResolution in ScreenTemplate[orientation]) {
+                    var info = '';
+                    if (screenResolution == '1280x720') info = ' (rezolucija za Android Player)';
                     screens += '<a href="#" data-resolution="' + screenResolution + '" class="' + BB.lib.unclass(Elements.CLASS_SELECTED_RESOLUTION)+ ' list-group-item">' +
                         '<input name="resolutionOption" id="resSelector' + i + '" type="radio"/>' +
-                        '<label class="screenResolutionLabel"> ' + screenResolution + ' </label></a>'
+                        '<label class="screenResolutionLabel"> ' + screenResolution + info + ' </label></a>'
                     i++;
                 }
                 $(Elements.RESOLUTION_LIST).append(screens);

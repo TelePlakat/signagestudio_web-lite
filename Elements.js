@@ -197,6 +197,7 @@ Elements.MSG_BOOTBOX_SCREEN_DIV_POS_RESET ='#bootBoxScreenDivPosReset';
 Elements.MSG_BOOTBOX_COSTUME_TITLE ='#bootBoxCostumeTitle';
 Elements.MSG_BOOTBOX_CONTINUE ='#bootBoxContinue';
 Elements.MSG_BOOTBOX_STEPS ='#bootBoxSteps';
+Elements.MSG_BOOTBOX_FILE_SPECIAL_CHARACTERS = "#fileSpecialCharacters";
 
 // templates
 Elements.FONT_SELECTOR_TEMPLATE = '#fontSelectorTemplate';

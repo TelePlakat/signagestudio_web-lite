@@ -25,7 +25,7 @@ define(['jquery', 'backbone', 'jqueryui', 'ScreenTemplateFactory'], function ($,
 
             self._initLayoutSelectorDragDrop();
             setTimeout(function () {
-                $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click');
+                $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click.dragdrop');
             }, 3000);
 
             pepper.listen(Pepper.TIMELINE_DELETED, $.proxy(self._deleteSequencedTimeline, self));
@@ -43,7 +43,8 @@ define(['jquery', 'backbone', 'jqueryui', 'ScreenTemplateFactory'], function ($,
             // Regular popup
             // $("#popupUndismissible").popup( "open", {x: 90, y: 90, width: '400', height: '400'});
 
-            $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).on('click', function () {
+            $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).off('click.dragdrop');
+            $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).on('click.dragdrop', function () {
 
                 var h = $(Elements.SCREEN_LAYOUTS_UL).height();
                 var t = h * 10 / 100;
@@ -60,8 +61,8 @@ define(['jquery', 'backbone', 'jqueryui', 'ScreenTemplateFactory'], function ($,
                     },
 
                     stop: function () {
-                        $(Elements.DETTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click');
-                        $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click');
+                        $(Elements.DETTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click.dragdrop');
+                        $(Elements.ATTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).trigger('click.dragdrop');
                         self.reSequenceTimelines();
                     },
 
@@ -77,6 +78,7 @@ define(['jquery', 'backbone', 'jqueryui', 'ScreenTemplateFactory'], function ($,
 
             });
 
+            $(Elements.DETTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).off('click.dragdrop');
             $(Elements.DETTACH_DRAG_DROP_MAIN_SCREEN_SELECTION).on('click', function () {
                 $(self.m_thumbsContainer).disableSelection();
                 self.m_thumbsContainer.sortable('destroy');

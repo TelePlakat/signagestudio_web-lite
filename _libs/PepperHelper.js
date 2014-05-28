@@ -76,7 +76,7 @@ PepperHelper.prototype = {
                                 '<Data>' +
                                     self.getCommonDefaultXML() +
                                     '<Resource hResource="' + i_resourceID + '">' +
-                                    '<AspectRatio maintain="1" />' +
+                                    '<AspectRatio maintain="0" />' +
                                     '<Image />' +
                                     '</Resource>' +
                                 '</Data>' +
@@ -187,7 +187,7 @@ PepperHelper.prototype = {
                                 '<Data>' +
                                     self.getCommonDefaultXML() +
                                     '<Clock clockFormat="custom" clockMask="EEEE, MMM. D, YYYY at L:NN A">'+
-                                        '<Font fontSize="11" fontColor="13158" fontFamily="Arial" fontWeight="bold" fontStyle="italic" textDecoration="underline" textAlign="center" />'+
+                                        '<Font fontSize="48" fontColor="13158" fontFamily="Arial" fontWeight="bold" fontStyle="italic" textDecoration="underline" textAlign="center" />'+
                                      '</Clock>'+
                                 '</Data>' +
                             '</Player>'
@@ -229,7 +229,7 @@ PepperHelper.prototype = {
                                     self.getCommonDefaultXML() +
                                     '<Label>'+
                                         '<Text>some text here!</Text>'+
-                                        '<Font fontSize="16" fontColor="65280" fontFamily="Arial" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="left" />' +
+                                        '<Font fontSize="60" fontColor="16777215" fontFamily="Verdana" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="center" />' +
                                     '</Label>'+
                                 '</Data>' +
                             '</Player>'
@@ -246,10 +246,10 @@ PepperHelper.prototype = {
                                     self.getCommonDefaultXML() +
                                     '<Rss url="http://rss.news.yahoo.com/rss/politics" minRefreshTime="30" speed="10" vertical="0" rtl="0">' +
                                         '<Title>' +
-                                            '<Font fontSize="16" fontColor="65280" fontFamily="Arial" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="left" />' +
+                                            '<Font fontSize="48" fontColor="65280" fontFamily="Arial" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="left" />' +
                                         '</Title>' +
                                         '<Description>' +
-                                            '<Font fontSize="16" fontColor="65280" fontFamily="Arial" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="left" />' +
+                                            '<Font fontSize="32" fontColor="65280" fontFamily="Arial" fontWeight="normal" fontStyle="normal" textDecoration="none" textAlign="left" />' +
                                         '</Description>' +
                                     '</Rss>' +
                                 '</Data>' +
@@ -279,7 +279,7 @@ PepperHelper.prototype = {
     getCommonBackgroundXML: function(){
         var common =    '<Background style="Gradient" gradientType="linear" angle="90" offsetX="0" offsetY="0">'+
                             '<GradientPoints>'+
-                                '<Point color="4361162" opacity="1" midpoint="125" />'+
+                                '<Point color="0" opacity="1" midpoint="125" />'+
                             '</GradientPoints>'+
                         '</Background>'
         return common;

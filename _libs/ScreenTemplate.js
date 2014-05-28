@@ -2,6 +2,569 @@ var ScreenTemplate = {
 
     HORIZONTAL: {
 
+        '1280x720': {
+
+            screenType0: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType0_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 1280,
+                    h: 720
+                }
+
+            },
+            screenType1: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType1_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 1280,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType1_sd1',
+                    x: 0,
+                    y: 550,
+                    w: 1280,
+                    h: 170
+
+
+                }
+            },
+            screenType2: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType2_sd0',
+                    x: 0,
+                    y: 30,
+                    w: 1280,
+                    h: 170
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType2_sd1',
+                    x: 0,
+                    y: 200,
+                    w: 1280,
+                    h: 520
+
+                }
+            },
+            screenType3: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType3_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 300,
+                    h: 720
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType3_sd1',
+                    x: 300,
+                    y: 0,
+                    w: 980,
+                    h: 720
+
+                }
+            },
+            screenType4: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType4_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 980,
+                    h: 720
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType4_sd1',
+                    x: 980,
+                    y: 0,
+                    w: 300,
+                    h: 720
+
+                }
+            },
+            screenType5: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType5_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType5_sd1',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType5_sd2',
+                    x: 0,
+                    y: 550,
+                    w: 1280,
+                    h: 170
+
+                }
+            },
+            screenType6: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType6_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 400,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType6_sd1',
+                    x: 400,
+                    y: 0,
+                    w: 880,
+                    h: 520
+
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType6_sd2',
+                    x: 0,
+                    y: 550,
+                    w: 1280,
+                    h: 170
+
+                }
+            },
+            screenType7: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType7_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 640,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType7_sd1',
+                    x: 640,
+                    y: 0,
+                    w: 640,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType7_sd2',
+                    x: 0,
+                    y: 550,
+                    w: 1280,
+                    h: 170
+
+                }
+
+            },
+            screenType8: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType8_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 360
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType8_sd1',
+                    x: 0,
+                    y: 360,
+                    w: 880,
+                    h: 360
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType8_sd2',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 720
+
+                }
+            },
+            screenType9: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType9_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 400,
+                    h: 720
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType9_sd1',
+                    x: 400,
+                    y: 0,
+                    w: 880,
+                    h: 360
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType9_sd2',
+                    x: 400,
+                    y: 360,
+                    w: 880,
+                    h: 360
+
+                }
+            },
+            screenType10: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType10_sd0',
+                    x: 0,
+                    y: 30,
+                    w: 1280,
+                    h: 210
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType10_sd1',
+                    x: 0,
+                    y: 240,
+                    w: 1280,
+                    h: 240
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType10_sd2',
+                    x: 0,
+                    y: 480,
+                    w: 1280,
+                    h: 240
+
+                }
+            },
+            screenType11: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType11_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 1280,
+                    h: 200
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType11_sd1',
+                    x: 0,
+                    y: 200,
+                    w: 640,
+                    h: 320
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType11_sd2',
+                    x: 640,
+                    y: 200,
+                    w: 640,
+                    h: 320
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType11_sd3',
+                    x: 0,
+                    y: 520,
+                    w: 1280,
+                    h: 200
+                }
+            },
+            screenType12: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType12_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 720
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType12_sd1',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 720
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType12_sd2',
+                    x: 680,
+                    y: 520,
+                    w: 200,
+                    h: 200
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType12_sd3',
+                    x: 0,
+                    y: 0,
+                    w: 200,
+                    h: 200
+                }
+            },
+            screenType13: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType13_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 640,
+                    h: 720
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType13_sd1',
+                    x: 640,
+                    y: 0,
+                    w: 640,
+                    h: 720
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType13_sd2',
+                    x: 0,
+                    y: 520,
+                    w: 200,
+                    h: 200
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType13_sd3',
+                    x: 1080,
+                    y: 0,
+                    w: 200,
+                    h: 200
+                }
+            },
+            screenType14: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType14_sd0',
+                    x: 0,
+                    y: 200,
+                    w: 640,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType14_sd1',
+                    x: 640,
+                    y: 200,
+                    w: 640,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType14_sd2',
+                    x: 0,
+                    y: 0,
+                    w: 1280,
+                    h: 200
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType14_sd3',
+                    x: 0,
+                    y: 200,
+                    w: 200,
+                    h: 200
+                }
+
+            },
+            screenType15: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType15_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 360
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType15_sd1',
+                    x: 0,
+                    y: 360,
+                    w: 880,
+                    h: 360
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType15_sd2',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 360
+                },
+
+                sd3: {
+                    id: 'horizontal_11280x720_screenType15_sd3',
+                    x: 880,
+                    y: 360,
+                    w: 400,
+                    h: 360
+                }
+            },
+            screenType16: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType16_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 400,
+                    h: 360
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType16_sd1',
+                    x: 0,
+                    y: 360,
+                    w: 400,
+                    h: 360
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType16_sd2',
+                    x: 400,
+                    y: 0,
+                    w: 880,
+                    h: 360
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType16_sd3',
+                    x: 400,
+                    y: 360,
+                    w: 880,
+                    h: 360
+                }
+            },
+            screenType17: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType17_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 560
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType17_sd1',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType17_sd2',
+                    x: 0,
+                    y: 520,
+                    w: 1280,
+                    h: 200
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType17_sd3',
+                    x: 680,
+                    y: 0,
+                    w: 200,
+                    h: 200
+                }
+            },
+            screenType18: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType18_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 880,
+                    h: 520
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType18_sd1',
+                    x: 880,
+                    y: 0,
+                    w: 400,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType18_sd2',
+                    x: 0,
+                    y: 520,
+                    w: 1280,
+                    h: 200
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType18_sd3',
+                    x: 0,
+                    y: 0,
+                    w: 200,
+                    h: 200
+                }
+            },
+            screenType19: {
+
+                sd0: {
+                    id: 'horizontal_1280x720_screenType19_sd0',
+                    x: 0,
+                    y: 0,
+                    w: 1280,
+                    h: 200
+                },
+
+                sd1: {
+                    id: 'horizontal_1280x720_screenType19_sd1',
+                    x: 0,
+                    y: 200,
+                    w: 640,
+                    h: 520
+                },
+
+                sd2: {
+                    id: 'horizontal_1280x720_screenType19_sd2',
+                    x: 640,
+                    y: 200,
+                    w: 640,
+                    h: 520
+                },
+
+                sd3: {
+                    id: 'horizontal_1280x720_screenType19_sd3',
+                    x: 1080,
+                    y: 520,
+                    w: 200,
+                    h: 200
+                }
+            }
+        },
+
         '1920x1080': {
 
             screenType0: {
@@ -27,9 +590,9 @@ var ScreenTemplate = {
                 sd1: {
                     id: 'horizontal_1920x1080_screenType1_sd1',
                     x: 0,
-                    y: 880,
+                    y: 910,
                     w: 1920,
-                    h: 200
+                    h: 170
                 }
             },
             screenType2: {
@@ -37,9 +600,9 @@ var ScreenTemplate = {
                 sd0: {
                     id: 'horizontal_1920x1080_screenType2_sd0',
                     x: 0,
-                    y: 0,
+                    y: 30,
                     w: 1920,
-                    h: 200
+                    h: 170
                 },
 
                 sd1: {
@@ -109,9 +672,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1920x1080_screenType5_sd2',
                     x: 0,
-                    y: 880,
+                    y: 910,
                     w: 1920,
-                    h: 200
+                    h: 170
                 }
             },
             screenType6: {
@@ -135,9 +698,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1920x1080_screenType6_sd2',
                     x: 0,
-                    y: 880,
+                    y: 910,
                     w: 1920,
-                    h: 200
+                    h: 170
 
                 }
             },
@@ -162,9 +725,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1920x1080_screenType7_sd2',
                     x: 0,
-                    y: 880,
+                    y: 910,
                     w: 1920,
-                    h: 200
+                    h: 170
 
                 }
             },
@@ -227,9 +790,9 @@ var ScreenTemplate = {
                 sd0: {
                     id: 'horizontal_1920x1080_screenType10_sd0',
                     x: 0,
-                    y: 0,
+                    y: 30,
                     w: 1920,
-                    h: 360
+                    h: 330
                 },
 
                 sd1: {
@@ -475,9 +1038,9 @@ var ScreenTemplate = {
                 sd0: {
                     id: 'horizontal_1920x1080_screenType18_sd0',
                     x: 0,
-                    y: 0,
+                    y: 30,
                     w: 1920,
-                    h: 200
+                    h: 170
                 },
 
                 sd1: {
@@ -568,9 +1131,9 @@ var ScreenTemplate = {
                 sd1: {
                     id: 'horizontal_1366x768_screenType1_sd1',
                     x: 0,
-                    y: 568,
+                    y: 598,
                     w: 1366,
-                    h: 200
+                    h: 170
 
                 }
             },
@@ -579,9 +1142,9 @@ var ScreenTemplate = {
                 sd0: {
                     id: 'horizontal_1366x768_screenType2_sd0',
                     x: 0,
-                    y: 0,
+                    y: 30,
                     w: 1366,
-                    h: 200
+                    h: 170
                 },
 
                 sd1: {
@@ -652,9 +1215,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1366x768_screenType5_sd2',
                     x: 0,
-                    y: 568,
+                    y: 598,
                     w: 1366,
-                    h: 200
+                    h: 170
 
                 }
             },
@@ -679,9 +1242,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1366x768_screenType6_sd2',
                     x: 0,
-                    y: 568,
+                    y: 598,
                     w: 1366,
-                    h: 200
+                    h: 170
 
                 }
             },
@@ -706,9 +1269,9 @@ var ScreenTemplate = {
                 sd2: {
                     id: 'horizontal_1366x768_screenType7_sd2',
                     x: 0,
-                    y: 568,
+                    y: 598,
                     w: 1366,
-                    h: 200
+                    h: 170
                 }
 
             },
@@ -785,9 +1348,9 @@ var ScreenTemplate = {
                 sd0: {
                     id: 'horizontal_1366x768_screenType10_sd0',
                     x: 0,
-                    y: 0,
+                    y: 30,
                     w: 1366,
-                    h: 192
+                    h: 162
                 },
 
                 sd1: {
@@ -1113,8 +1676,9 @@ var ScreenTemplate = {
                     h: 300
                 }
             }
-        },
+        }
 
+        /*
         '1440x900': {
 
             screenType0: {
@@ -5065,568 +5629,6 @@ var ScreenTemplate = {
             }
         },
 
-        '1280x720': {
-
-            screenType0: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType0_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 720
-                }
-
-            },
-            screenType1: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType1_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType1_sd1',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-
-
-                }
-            },
-            screenType2: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType2_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType2_sd1',
-                    x: 0,
-                    y: 200,
-                    w: 1280,
-                    h: 520
-
-                }
-            },
-            screenType3: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType3_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 300,
-                    h: 720
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType3_sd1',
-                    x: 300,
-                    y: 0,
-                    w: 980,
-                    h: 720
-
-                }
-            },
-            screenType4: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType4_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 980,
-                    h: 720
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType4_sd1',
-                    x: 980,
-                    y: 0,
-                    w: 300,
-                    h: 720
-
-                }
-            },
-            screenType5: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType5_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType5_sd1',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType5_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-
-                }
-            },
-            screenType6: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType6_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 400,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType6_sd1',
-                    x: 400,
-                    y: 0,
-                    w: 880,
-                    h: 520
-
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType6_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-
-                }
-            },
-            screenType7: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType7_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 640,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType7_sd1',
-                    x: 640,
-                    y: 0,
-                    w: 640,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType7_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-
-                }
-
-            },
-            screenType8: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType8_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 360
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType8_sd1',
-                    x: 0,
-                    y: 360,
-                    w: 880,
-                    h: 360
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType8_sd2',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 720
-
-                }
-            },
-            screenType9: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType9_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 400,
-                    h: 720
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType9_sd1',
-                    x: 400,
-                    y: 0,
-                    w: 880,
-                    h: 360
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType9_sd2',
-                    x: 400,
-                    y: 360,
-                    w: 880,
-                    h: 360
-
-                }
-            },
-            screenType10: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType10_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 240
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType10_sd1',
-                    x: 0,
-                    y: 240,
-                    w: 1280,
-                    h: 240
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType10_sd2',
-                    x: 0,
-                    y: 480,
-                    w: 1280,
-                    h: 240
-
-                }
-            },
-            screenType11: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType11_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType11_sd1',
-                    x: 0,
-                    y: 200,
-                    w: 640,
-                    h: 320
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType11_sd2',
-                    x: 640,
-                    y: 200,
-                    w: 640,
-                    h: 320
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType11_sd3',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-                }
-            },
-            screenType12: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType12_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 720
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType12_sd1',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 720
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType12_sd2',
-                    x: 680,
-                    y: 520,
-                    w: 200,
-                    h: 200
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType12_sd3',
-                    x: 0,
-                    y: 0,
-                    w: 200,
-                    h: 200
-                }
-            },
-            screenType13: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType13_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 640,
-                    h: 720
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType13_sd1',
-                    x: 640,
-                    y: 0,
-                    w: 640,
-                    h: 720
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType13_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 200,
-                    h: 200
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType13_sd3',
-                    x: 1080,
-                    y: 0,
-                    w: 200,
-                    h: 200
-                }
-            },
-            screenType14: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType14_sd0',
-                    x: 0,
-                    y: 200,
-                    w: 640,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType14_sd1',
-                    x: 640,
-                    y: 200,
-                    w: 640,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType14_sd2',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType14_sd3',
-                    x: 0,
-                    y: 200,
-                    w: 200,
-                    h: 200
-                }
-
-            },
-            screenType15: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType15_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 360
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType15_sd1',
-                    x: 0,
-                    y: 360,
-                    w: 880,
-                    h: 360
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType15_sd2',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 360
-                },
-
-                sd3: {
-                    id: 'horizontal_11280x720_screenType15_sd3',
-                    x: 880,
-                    y: 360,
-                    w: 400,
-                    h: 360
-                }
-            },
-            screenType16: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType16_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 400,
-                    h: 360
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType16_sd1',
-                    x: 0,
-                    y: 360,
-                    w: 400,
-                    h: 360
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType16_sd2',
-                    x: 400,
-                    y: 0,
-                    w: 880,
-                    h: 360
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType16_sd3',
-                    x: 400,
-                    y: 360,
-                    w: 880,
-                    h: 360
-                }
-            },
-            screenType17: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType17_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 560
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType17_sd1',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType17_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType17_sd3',
-                    x: 680,
-                    y: 0,
-                    w: 200,
-                    h: 200
-                }
-            },
-            screenType18: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType18_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 880,
-                    h: 520
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType18_sd1',
-                    x: 880,
-                    y: 0,
-                    w: 400,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType18_sd2',
-                    x: 0,
-                    y: 520,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType18_sd3',
-                    x: 0,
-                    y: 0,
-                    w: 200,
-                    h: 200
-                }
-            },
-            screenType19: {
-
-                sd0: {
-                    id: 'horizontal_1280x720_screenType19_sd0',
-                    x: 0,
-                    y: 0,
-                    w: 1280,
-                    h: 200
-                },
-
-                sd1: {
-                    id: 'horizontal_1280x720_screenType19_sd1',
-                    x: 0,
-                    y: 200,
-                    w: 640,
-                    h: 520
-                },
-
-                sd2: {
-                    id: 'horizontal_1280x720_screenType19_sd2',
-                    x: 640,
-                    y: 200,
-                    w: 640,
-                    h: 520
-                },
-
-                sd3: {
-                    id: 'horizontal_1280x720_screenType19_sd3',
-                    x: 1080,
-                    y: 520,
-                    w: 200,
-                    h: 200
-                }
-            }
-        },
 
         '2560x1440': {
 
@@ -6192,7 +6194,7 @@ var ScreenTemplate = {
                 }
             }
         }
-
+        */
     },
 
     VERTICAL: {

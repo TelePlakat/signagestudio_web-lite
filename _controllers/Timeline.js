@@ -50,6 +50,14 @@ define(['jquery', 'backbone', 'Channel', 'ScreenTemplateFactory'], function ($, 
 
         },
 
+        destroy: function () {
+            var self = this;
+            pepper.stopListenWithNamespace(Pepper.TEMPLATE_VIEWER_EDITED, self);
+            pepper.stopListenWithNamespace(Pepper.NEW_CHANNEL_ADDED, self);
+            BB.comBroker.stopListenWithNamespace(BB.EVENTS.CAMPAIGN_TIMELINE_SELECTED, self);
+            $(Elements.EDIT_SCREEN_LAYOUT).off('click', self.m_openScreenLayoutEditorHandler);
+            $(Elements.TIME_LINE_PROP_TITLE_ID).off("input", self.m_inputChangeHandler);
+        },
         /**
          Listen to timeline selection events and populate the properties panel accordingly.
          @method _onTimelineSelected
@@ -59,6 +67,7 @@ define(['jquery', 'backbone', 'Channel', 'ScreenTemplateFactory'], function ($, 
             var self = this;
             self.m_campaignTimelineSelectedHandler = function (e) {
                 var timelineID = e.edata;
+                //console.log("selected timeline: %s", timelineID);
                 if (self.m_campaign_timeline_id != timelineID) {
                     self.m_selected = false;
                     return;
@@ -80,7 +89,8 @@ define(['jquery', 'backbone', 'Channel', 'ScreenTemplateFactory'], function ($, 
             self.m_inputChangeHandler = _.debounce(function (e) {
                 if (!self.m_selected)
                     return;
-                pepper.setCampaignTimelineRecord(self.m_campaign_timeline_id, 'timeline_name', $(Elements.TIME_LINE_PROP_TITLE_ID).val());
+                var encoded = toAnsi($(Elements.TIME_LINE_PROP_TITLE_ID).val());
+                pepper.setCampaignTimelineRecord(self.m_campaign_timeline_id, 'timeline_name', encoded);
             }, 150, false);
             $(Elements.TIME_LINE_PROP_TITLE_ID).on("input", self.m_inputChangeHandler);
         },
@@ -134,7 +144,8 @@ define(['jquery', 'backbone', 'Channel', 'ScreenTemplateFactory'], function ($, 
             var self = this;
             self.m_property.viewPanel(Elements.TIMELINE_PROPERTIES);
             var recTimeline = pepper.getCampaignTimelineRecord(self.m_campaign_timeline_id);
-            $(Elements.TIME_LINE_PROP_TITLE_ID).val(recTimeline['timeline_name']);
+            var decoded = fromAnsi(recTimeline['timeline_name']);
+            $(Elements.TIME_LINE_PROP_TITLE_ID).val(decoded);
             self._populateTimelineLength();
         },
 

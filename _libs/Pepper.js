@@ -24,7 +24,7 @@ function Pepper() {
     this.m_loaderManager = undefined;
 };
 
-/**
+/**=
  Custom event fired when a total timeline length (i.e.: channel content within specified timeline) has changed
  @event Pepper.TIMELINE_LENGTH_CHANGED
  @param {This} caller
@@ -714,6 +714,7 @@ Pepper.prototype = {
      @return {Number} board_id
      **/
     getGlobalBoardIDFromTimeline: function (i_campaign_timeline_board_template_id) {
+        //console.log("delete %s", i_campaign_timeline_board_template_id);
         var recCampaignTimelineBoardTemplate = pepper.m_msdb.table_campaign_timeline_board_templates().getRec(i_campaign_timeline_board_template_id);
         var board_template_id = recCampaignTimelineBoardTemplate['board_template_id'];
         var recBoardTemplate = pepper.m_msdb.table_board_templates().getRec(board_template_id);

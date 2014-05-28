@@ -201,17 +201,50 @@ define(['jquery', 'backbone', 'StationsCollection', 'AjaxJsonGetter'], function 
          **/
         _wireUI: function () {
             var self = this;
+
+            function AskSaveAndCommand(command) {
+                bootbox.dialog({
+                    message: $(Elements.MSG_BOOTBOX_RESTART_STATIONS).text(),
+                    title: $(Elements.MSG_BOOTBOX_SAVE_REMOTE_SRV).text(),
+                    buttons: {
+                        save: {
+                            label: $(Elements.MSG_BOOTBOX_SAVE_RESTART).text(),
+                            className: "btn-success",
+                            callback : function() {
+                                var appEntryFaderView = BB.comBroker.getService(BB.SERVICES['APP_ENTRY_FADER_VIEW']);
+                                appEntryFaderView.selectView(Elements.WAITS_SCREEN_ENTRY_APP);
+                                pepper.save(function(status) {
+                                    pepper.sendCommand(command, self.m_selected_station_id, function () {
+                                        appEntryFaderView.selectView(Elements.APP_CONTENT);
+                                    });
+                                });
+                            }
+                        },
+                        cancel: {
+                            label: $(Elements.MSG_BOOTBOX_CANCEL).text(),
+                            className: "btn-success",
+                            callback: function() {}
+                        }
+                    }
+                });
+            }
+
             $(Elements.STATION_PLAY_COMMAND + ' , ' + Elements.STATION_STOP_COMMAND).on('click', function (e) {
                 var command = BB.lib.unhash(Elements.STATION_PLAY_COMMAND) == e.currentTarget.id ? 'start' : 'stop';
-                pepper.sendCommand(command, self.m_selected_station_id, function () {
-                    // log('cmd done'+command);
-                });
+
+                if (command == 'start') {
+                    AskSaveAndCommand(command);
+                }
+                else {
+                    pepper.sendCommand(command, self.m_selected_station_id, function () {});
+                }
+
                 return false;
             });
 
             $(Elements.STATION_RELOAD_COMMAND).on('click', function (e) {
-                pepper.sendCommand('syncAndStart', self.m_selected_station_id, function () {
-                });
+                AskSaveAndCommand("syncAndStart");
+                //pepper.sendCommand('syncAndStart', self.m_selected_station_id, function () {});
                 return false;
             });
 
@@ -430,7 +463,8 @@ define(['jquery', 'backbone', 'StationsCollection', 'AjaxJsonGetter'], function 
                 var campaignID = campaignIDs[i];
                 var recCampaign = pepper.getCampaignRecord(campaignID);
                 var selected = campaignID == i_campaignID ? 'selected' : '';
-                var snippet = '<option ' + selected + ' data-campaign_id="' + campaignID + '">' + recCampaign['campaign_name'] + '</option>';
+                var cName = fromAnsi(recCampaign['campaign_name']);
+                var snippet = '<option ' + selected + ' data-campaign_id="' + campaignID + '">' + cName + '</option>';
                 $(Elements.STATION_SELECTION_CAMPAIGN).append(snippet);
             }
         },

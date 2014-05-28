@@ -61,7 +61,8 @@ define(['jquery', 'backbone'], function ($, Backbone) {
             var self = this;
             var onChange = _.debounce( function (e) {
                 var text = $(e.target).val();
-                pepper.setResourceRecord(self.m_selected_resource_id, 'resource_name', text);
+                var encoded = toAnsi(text);
+                pepper.setResourceRecord(self.m_selected_resource_id, 'resource_name', encoded);
                 var elem = self.$el.find('[data-resource_id="' + self.m_selected_resource_id + '"]');
                 elem.find('span').text(text);
             }, 333);
@@ -146,10 +147,33 @@ define(['jquery', 'backbone'], function ($, Backbone) {
          **/
         _onFileSelected: function (e) {
             var self = this;
-            pepper.uploadResources('file');
-            self._loadResourceList();
-            self._listenResourceSelected();
-            self._listenRemoveResource();
+
+            var illegal = false;
+            for (var i = 0; i < e.target.files.length; i++) {
+                var fname = e.target.files.item(i).name;
+                var encoded = toAnsi(fname);
+                if (fname != encoded) illegal = true;
+            }
+
+            if (illegal){
+                bootbox.dialog({
+                    message: $(Elements.MSG_BOOTBOX_FILE_SPECIAL_CHARACTERS).text(),
+                    title: $(Elements.MSG_BOOTBOX_PROBLEM_SAVING).text(),
+                    buttons: {
+                        danger: {
+                            label: $(Elements.MSG_BOOTBOX_OK).text(),
+                            className: "btn-danger",
+                            callback: function () {
+                            }
+                        }
+                    }
+                });
+            } else {
+                pepper.uploadResources('file');
+                self._loadResourceList();
+                self._listenResourceSelected();
+                self._listenRemoveResource();
+            }
         }
     });
 

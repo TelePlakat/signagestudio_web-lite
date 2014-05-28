@@ -62,6 +62,11 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
                 // don't show image or video component in component list
                 if (componentID == 3130 || componentID == 3100)
                     continue;
+
+                // hide additional types for teleplakat.hr
+                if (componentID == 3340 || componentID == 3345 || componentID == 3430)
+                    continue;
+
                 var snippet = '<li class="list-group-item ' + BB.lib.unclass(Elements.CLASS_ADD_BLOCK_LIST_ITEMS) + '" data-component_id="' + componentID + '" data-component_name="' + components[componentID].name + '">' +
                     '<img class="img-responsive" src="' + components[componentID].icon + '">' +
                     '<span>' + components[componentID].name + '</span>' +

@@ -65,7 +65,7 @@ define(['jquery', 'backbone', 'Knob', 'nouislider', 'gradient', 'spinner', 'Font
             self._alphaSliderInit();
             self._bgGradientInit();
             self._propLengthKnobsInit();
-            self._videoVolumeSliderInit()
+            self._videoVolumeSliderInit();
             self._rssFontSelectorInit();
             self._rssSourceSelectorInit();
             self._mrssSourceSelectorInit();

@@ -83,6 +83,7 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
                 self._listenObjectChanged();
                 self._listenObjectsOverlap();
                 self._listenBackgroundSelected();
+                self._listenConstraints();
             })
         },
 
@@ -259,6 +260,7 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
             var offsetH = i_height / 2;
             var offsetW = (i_width / 2) + 30;
             self.m_canvasID = _.uniqueId('screenLayoutEditorCanvas');
+            $('#screenLayoutEditorCanvasWrap').html("");
             $('#screenLayoutEditorCanvasWrap').append('' +
                 '<div>' +
                 '<span align="center">' + self.m_resolution.split('x')[0] + 'px </span>' +
@@ -457,8 +459,70 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
                 'object:selected': self.m_objectMovingHandler,
                 'object:modified': self.m_objectMovingHandler
             });
+
         },
 
+        // we want to constrain object movement and scaling to canvas
+        // current solution is not perfect, it should NOT revert to last good dimension
+        // but instead clip to maximum ones, depending on type and direction of the move/resize
+
+        _constrainObject: function(e) {
+            var edit = BB.comBroker.getService(BB.SERVICES['SCREEN_LAYOUT_EDITOR_VIEW']);
+
+            var w = edit.m_canvas.getWidth();
+            var h = edit.m_canvas.getHeight();
+
+            var sx = e.target.getScaleX();
+            var sy = e.target.getScaleY();
+            var scaling = false;
+            if ((sx != 1) || (sy != 1)) scaling = true;
+
+            var x0 = e.target.getLeft();
+            var x1 = x0 + e.target.getWidth();
+            var y0 = e.target.getTop();
+            var y1 = y0 + e.target.getHeight();
+
+            var deltaX = 0;
+            var deltaY = 0;
+
+            if (x0 < 0) deltaX = -x0;
+            if (x1 > w) deltaX = w - x1;
+            if (y0 < 0) deltaY = -y0;
+            if (y1 > h) deltaY = h - y1;
+
+            e.target.setLeft(x0 + deltaX);
+            e.target.setTop(y0 + deltaY);
+
+            if (e.target.getWidth() > w) {
+                var nsx = sx * (w - 0.5) / e.target.getWidth();
+                e.target.setLeft(0);
+                e.target.setScaleX(nsx);
+            }
+
+            if (e.target.getHeight() > h) {
+                var nsy = sy * (h - 0.5) / e.target.getHeight();
+                e.target.setTop(0);
+                e.target.setScaleY(nsy);
+            }
+        },
+
+
+        // when new view is selected, we want to set last good values to its current ones
+        _constrainSelected: function(e) {
+            var edit = BB.comBroker.getService(BB.SERVICES['SCREEN_LAYOUT_EDITOR_VIEW']);
+        },
+
+        _listenConstraints: function() {
+            var self = this;
+
+            self.m_canvas.on({
+                'object:moving': self._constrainObject,
+                'object:scaling' : self._constrainObject,
+                'object:modified' : self._constrainObject,
+                'object:selected' : self._constrainSelected
+            });
+
+        },
         /**
          Move the object / viewer to new set of coords
          @method _moveViewer
@@ -479,6 +543,7 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
 
                 viewer.setCoords();
                 self.m_canvas.renderAll();
+
             }
         },
 
@@ -516,6 +581,14 @@ define(['jquery', 'backbone', 'StackView', 'ScreenTemplateFactory'], function ($
                 'object:scaling': self.m_onOverlap,
                 'object:rotating': self.m_onOverlap
             });
+
+            self.m_canvas.off({
+                'object:moving': self._constrainObject,
+                'object:scaling' : self._constrainObject,
+                'object:modified' : self._constrainObject,
+                'object:selected' : self._constrainSelected
+            });
+
 
             self.m_canvas.clear().renderAll();
             $('#screenLayoutEditorCanvasWrap').empty()
